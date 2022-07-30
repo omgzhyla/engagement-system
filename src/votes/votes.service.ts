@@ -5,15 +5,14 @@ import { UpdateVoteDto } from './dto/update-vote.dto';
 @Injectable()
 export class VotesService {
   create(createVoteDto: CreateVoteDto) {
-    return 'This action adds a new vote';
   }
 
   findAll() {
-    return `This action returns all votes`;
+    return [];
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} vote`;
+    return {};
   }
 
   update(id: number, updateVoteDto: UpdateVoteDto) {
