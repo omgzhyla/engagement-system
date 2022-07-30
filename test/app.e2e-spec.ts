@@ -3,10 +3,10 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
 
-describe('AppController (e2e)', () => {
+describe('E2E engagement system API', () => {
   let app: INestApplication;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -15,10 +15,19 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/votes (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/votes')
       .expect(200)
-      .expect('Hello World!');
+      .expect([]);
   });
+
+  it('/votes (POST)', () => {
+    return request(app.getHttpServer())
+      .post('/votes',)
+      .send({})
+      .set('Content-Type', 'application/json')
+      .expect(201)
+      .expect("")
+  })
 });
