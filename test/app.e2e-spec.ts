@@ -38,19 +38,23 @@ describe('E2E engagement system API', () => {
       .expect({statusCode: 404, message: 'Not found'});
   });
 
+  it('/votes/:id (GET) non-numeric ID', () => {
+    return request(app.getHttpServer())
+      .get('/votes/abc')
+      .expect(400);
+  });
+
   it('/votes/:id (PATCH) non-existent vote', () => {
     return request(app.getHttpServer())
       .patch('/votes/1')
       .send({})
-      .expect(404)
-      .expect({statusCode: 404, message: 'Not found'});
+      .expect(404);
   })
 
   it('/votes/:id (DELETE) non-existent vote', () => {
     return request(app.getHttpServer())
       .delete('/votes/1')
       .send({})
-      .expect(404)
-      .expect({statusCode: 404, message: 'Not found'});
+      .expect(404);
   })
 });
