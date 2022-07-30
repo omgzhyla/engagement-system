@@ -5,7 +5,7 @@ import {
   Body,
   Patch,
   Param,
-  Delete,
+  Delete, ParseIntPipe,
 } from '@nestjs/common';
 import { VotesService } from './votes.service';
 import { CreateVoteDto } from './dto/create-vote.dto';
@@ -26,17 +26,17 @@ export class VotesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.votesService.findOne(+id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.votesService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateVoteDto: UpdateVoteDto) {
-    return this.votesService.update(+id, updateVoteDto);
+  update(@Param('id', ParseIntPipe) id: number, @Body() updateVoteDto: UpdateVoteDto) {
+    return this.votesService.update(id, updateVoteDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.votesService.remove(+id);
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.votesService.remove(id);
   }
 }
