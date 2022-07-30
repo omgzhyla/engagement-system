@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { CreateVoteDto } from './dto/create-vote.dto';
 import { UpdateVoteDto } from './dto/update-vote.dto';
+import { VotesNotFoundException } from "./votes.not-found.exception";
+
 
 @Injectable()
 export class VotesService {
@@ -12,14 +14,14 @@ export class VotesService {
   }
 
   findOne(id: number) {
-    return {};
+    throw new VotesNotFoundException();
   }
 
   update(id: number, updateVoteDto: UpdateVoteDto) {
-    return `This action updates a #${id} vote`;
+    throw new VotesNotFoundException();
   }
 
   remove(id: number) {
-    return `This action removes a #${id} vote`;
+    throw new VotesNotFoundException();
   }
 }

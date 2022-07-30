@@ -15,7 +15,7 @@ describe('E2E engagement system API', () => {
     await app.init();
   });
 
-  it('/votes (GET)', () => {
+  it('/votes (GET) empty result', () => {
     return request(app.getHttpServer())
       .get('/votes')
       .expect(200)
@@ -29,5 +29,28 @@ describe('E2E engagement system API', () => {
       .set('Content-Type', 'application/json')
       .expect(201)
       .expect("")
+  })
+
+  it('/votes/:id (GET) non-existent vote', () => {
+    return request(app.getHttpServer())
+      .get('/votes/1')
+      .expect(404)
+      .expect({statusCode: 404, message: 'Not found'});
+  });
+
+  it('/votes/:id (PATCH) non-existent vote', () => {
+    return request(app.getHttpServer())
+      .patch('/votes/1')
+      .send({})
+      .expect(404)
+      .expect({statusCode: 404, message: 'Not found'});
+  })
+
+  it('/votes/:id (DELETE) non-existent vote', () => {
+    return request(app.getHttpServer())
+      .delete('/votes/1')
+      .send({})
+      .expect(404)
+      .expect({statusCode: 404, message: 'Not found'});
   })
 });
