@@ -1,12 +1,13 @@
-import { IsJSON, IsString, Length, MaxLength } from "class-validator";
+import { IsJSON, IsString, Length } from "class-validator";
+import { votes } from "../../generated/prisma-client";
 
 export class CreateVoteDto {
+  id?: number;
   @IsString()
   @Length(1, 255)
-  title: string;
+  title: votes['title'];
   @IsString()
   @Length(1,255)
-  description: string;
-  @IsJSON()
-  answers: string;
+  description: votes['description'];
+  options: votes['options'];
 }

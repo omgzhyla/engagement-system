@@ -11,15 +11,25 @@ import { VotesService } from './votes.service';
 import { CreateVoteDto } from './dto/create-vote.dto';
 import { UpdateVoteDto } from './dto/update-vote.dto';
 import { ValidationPipe } from "../validation.pipe";
+import { AnswersService } from "../answers/answers.service";
 
 @Controller('votes')
 export class VotesController {
-  constructor(private readonly votesService: VotesService) {}
+  constructor(
+    private readonly votesService: VotesService,
+    private readonly answersService: AnswersService
+  ) {}
 
   @Post()
   @UsePipes(new ValidationPipe())
   create(@Body() createVoteDto: CreateVoteDto) {
     return this.votesService.create(createVoteDto);
+  }
+
+  @Post(':id/answers')
+  async answer(@Param('id', ParseIntPipe) id: number, @Body() addAnswerDto:AddAnswerDto) {
+    const vote = this.votesService.findOne(id);
+    this.answersService.create({ data: addAnswerDto });
   }
 
   @Get()
