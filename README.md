@@ -10,30 +10,31 @@ the page shows a diagram with answers ordered by the number of users who chose t
 
 ## Endpoints
 
-| Method | Path              | Description              | HTTP response codes |
-|--------|-------------------|--------------------------|----------------|
-| GET    | votes/            | List of active votes     | 200            |
-| GET    | votes/:id         | Vote details             | 200, 404       |
-| POST   | votes/            | Add vote                 | 201, 400, 404  |
-| POST   | votes/:id/answers | Add answer               | 201, 400, 404  |
-| PATCH  | votes/:id         | Update vote / Close vote | 201, 400, 404  |
+| Method | Path              | Description            | HTTP response codes |
+|--------|-------------------|------------------------|----------------|
+| GET    | votes/            | List of active votes   | 200            |
+| GET    | votes/:id         | Vote details           | 200, 404       |
+| POST   | votes/            | Add vote               | 201, 400, 404  |
+| POST   | votes/:id/answers | Add answer             | 201, 400, 404  |
+| PATCH  | votes/:id         | Open vote / Close vote | 201, 400, 404  |
+| DELETE | votes/:id         | Delete vote            | 201, 404  |
 
 ## Data structure
 
 ### Votes
 
-Since we need no to track answers separately we could put them as a JSON value
+Since we need no to track answers separately we could put them as a JSON value.
 
-| Field       | Value             |     |
-|-------------|-------------------|-----|
-| id          |                   |     |
-| title       |                   |     |
-| description |                   |     |
-| status      | "new","open","closed"   |     |
-| answers     | JSON with answers |     |
-| created_at  |                   |     |
-| started_at  |                   |     |
-| closed_at   |                   |     |
+| Field       | Value                  |     |
+|-------------|------------------------|-----|
+| id          |                        |     |
+| title       |                        |     |
+| description |                        |     |
+| status      | "new","open","closed"  |     |
+| options     | JSON with vote options |     |
+| created_at  |                        |     |
+| opened_at   |                        |     |
+| closed_at   |                        |     |
 
 ### Answers
 | Field        | Value                   |     |
