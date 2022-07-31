@@ -1,7 +1,7 @@
-import { HttpException } from "@nestjs/common";
+import { HttpException, HttpStatus } from "@nestjs/common";
 
 export class VotesNotFoundException extends HttpException {
   constructor() {
-    super('Vote not found');
+    super('Vote not found', HttpStatus.NOT_FOUND);
   }
 }
