@@ -5,17 +5,19 @@ import {
   Body,
   Patch,
   Param,
-  Delete, ParseIntPipe,
+  Delete, ParseIntPipe, UsePipes,
 } from '@nestjs/common';
 import { VotesService } from './votes.service';
 import { CreateVoteDto } from './dto/create-vote.dto';
 import { UpdateVoteDto } from './dto/update-vote.dto';
+import { ValidationPipe } from "../validation.pipe";
 
 @Controller('votes')
 export class VotesController {
   constructor(private readonly votesService: VotesService) {}
 
   @Post()
+  @UsePipes(new ValidationPipe())
   create(@Body() createVoteDto: CreateVoteDto) {
     return this.votesService.create(createVoteDto);
   }

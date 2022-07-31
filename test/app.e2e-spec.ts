@@ -25,17 +25,32 @@ describe('E2E engagement system API', () => {
   it('/votes (POST)', () => {
     return request(app.getHttpServer())
       .post('/votes',)
-      .send({})
+      .send({
+        title:'test',
+        description:'test',
+        answers: '{}',
+      })
       .set('Content-Type', 'application/json')
       .expect(201)
       .expect("")
   })
 
+  it('/votes (POST) invalid payload', () => {
+    return request(app.getHttpServer())
+      .post('/votes',)
+      .send({
+        title:'',
+        description:'',
+        answers: '{}',
+      })
+      .set('Content-Type', 'application/json')
+      .expect(400)
+  })
+
   it('/votes/:id (GET) non-existent vote', () => {
     return request(app.getHttpServer())
       .get('/votes/1')
-      .expect(404)
-      .expect({statusCode: 404, message: 'Not found'});
+      .expect(404);
   });
 
   it('/votes/:id (GET) non-numeric ID', () => {
