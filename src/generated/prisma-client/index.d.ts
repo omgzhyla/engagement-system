@@ -14,7 +14,7 @@ type UnwrapTuple<Tuple extends readonly unknown[]> = {
 
 /**
  * Model answers
- *
+ * 
  */
 export type answers = {
   vote_id: number
@@ -25,17 +25,17 @@ export type answers = {
 
 /**
  * Model votes
- *
+ * 
  */
 export type votes = {
   id: number
   title: string
   description: string
-  options: Prisma.JsonArray
-  created_at?: Date | null
-  started_at?: Date | null
-  closed_at?: Date | null
-  status?: status | null
+  options: Prisma.JsonValue
+  created_at: Date | null
+  opened_at: Date | null
+  closed_at: Date | null
+  status: status | null
 }
 
 
@@ -57,7 +57,7 @@ export type status = (typeof status)[keyof typeof status]
 
 /**
  * ##  Prisma Client ʲˢ
- *
+ * 
  * Type-safe database client for TypeScript & Node.js
  * @example
  * ```
@@ -66,7 +66,7 @@ export type status = (typeof status)[keyof typeof status]
  * const answers = await prisma.answers.findMany()
  * ```
  *
- *
+ * 
  * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
  */
 export class PrismaClient<
@@ -103,7 +103,7 @@ export class PrismaClient<
 
     /**
    * ##  Prisma Client ʲˢ
-   *
+   * 
    * Type-safe database client for TypeScript & Node.js
    * @example
    * ```
@@ -112,7 +112,7 @@ export class PrismaClient<
    * const answers = await prisma.answers.findMany()
    * ```
    *
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
    */
 
@@ -140,7 +140,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $executeRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): PrismaPromise<number>;
@@ -152,7 +152,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$executeRawUnsafe('UPDATE User SET cool = $1 WHERE email = $2 ;', true, 'user@email.com')
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $executeRawUnsafe<T = unknown>(query: string, ...values: any[]): PrismaPromise<number>;
@@ -163,7 +163,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$queryRaw`SELECT * FROM User WHERE id = ${1} OR email = ${'user@email.com'};`
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $queryRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): PrismaPromise<T>;
@@ -175,7 +175,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$queryRawUnsafe('SELECT * FROM User WHERE id = $1 OR email = $2;', 1, 'user@email.com')
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $queryRawUnsafe<T = unknown>(query: string, ...values: any[]): PrismaPromise<T>;
@@ -190,7 +190,7 @@ export class PrismaClient<
    *   prisma.user.create({ data: { name: 'Alice' } }),
    * ])
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/concepts/components/prisma-client/transactions).
    */
   $transaction<P extends PrismaPromise<any>[]>(arg: [...P]): Promise<UnwrapTuple<P>>;
@@ -246,7 +246,7 @@ export namespace Prisma {
   export type DecimalJsLike = runtime.DecimalJsLike
 
   /**
-   * Metrics
+   * Metrics 
    */
   export import Metrics = runtime.Metrics
   export import Metric = runtime.Metric
@@ -261,7 +261,7 @@ export namespace Prisma {
     client: string
   }
 
-  export const prismaVersion: PrismaVersion
+  export const prismaVersion: PrismaVersion 
 
   /**
    * Utility Types
@@ -270,7 +270,7 @@ export namespace Prisma {
   /**
    * From https://github.com/sindresorhus/type-fest/
    * Matches a JSON object.
-   * This type can be useful to enforce some input to be JSON-compatible or as a super-type to be extended from.
+   * This type can be useful to enforce some input to be JSON-compatible or as a super-type to be extended from. 
    */
   export type JsonObject = {[Key in string]?: JsonValue}
 
@@ -315,15 +315,15 @@ export namespace Prisma {
 
   /**
    * Types of the values used to represent different kinds of `null` values when working with JSON fields.
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   namespace NullTypes {
     /**
     * Type of `Prisma.DbNull`.
-    *
+    * 
     * You cannot use other instances of this class. Please use the `Prisma.DbNull` value.
-    *
+    * 
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class DbNull {
@@ -333,9 +333,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.JsonNull`.
-    *
+    * 
     * You cannot use other instances of this class. Please use the `Prisma.JsonNull` value.
-    *
+    * 
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class JsonNull {
@@ -345,9 +345,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.AnyNull`.
-    *
+    * 
     * You cannot use other instances of this class. Please use the `Prisma.AnyNull` value.
-    *
+    * 
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class AnyNull {
@@ -358,21 +358,21 @@ export namespace Prisma {
 
   /**
    * Helper for filtering JSON entries that have `null` on the database (empty on the db)
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const DbNull: NullTypes.DbNull
 
   /**
    * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const JsonNull: NullTypes.JsonNull
 
   /**
    * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const AnyNull: NullTypes.AnyNull
@@ -609,7 +609,7 @@ export namespace Prisma {
 
   export type Keys<U extends Union> = U extends unknown ? keyof U : never
 
-  type Exact<A, W = unknown> =
+  type Exact<A, W = unknown> = 
   W extends unknown ? A extends Narrowable ? Cast<A, W> : Cast<
   {[K in keyof A]: K extends keyof W ? Exact<A[K], W[K]> : never},
   {[K in keyof W]: K extends keyof A ? Exact<A[K], W[K]> : W[K]}>
@@ -695,7 +695,7 @@ export namespace Prisma {
 
   export type RejectOnNotFound = boolean | ((error: Error) => Error)
   export type RejectPerModel = { [P in ModelName]?: RejectOnNotFound }
-  export type RejectPerOperation =  { [P in "findUnique" | "findFirst"]?: RejectPerModel | RejectOnNotFound }
+  export type RejectPerOperation =  { [P in "findUnique" | "findFirst"]?: RejectPerModel | RejectOnNotFound } 
   type IsReject<T> = T extends true ? True : T extends (err: Error) => Error ? True : False
   export type HasReject<
     GlobalRejectSettings extends Prisma.PrismaClientOptions['rejectOnNotFound'],
@@ -719,7 +719,7 @@ export namespace Prisma {
 
   export interface PrismaClientOptions {
     /**
-     * Configure findUnique/findFirst to throw an error if the query returns null.
+     * Configure findUnique/findFirst to throw an error if the query returns null. 
      * @deprecated since 4.0.0. Use `findUniqueOrThrow`/`findFirstOrThrow` methods instead.
      * @example
      * ```
@@ -747,7 +747,7 @@ export namespace Prisma {
      * ```
      * // Defaults to stdout
      * log: ['query', 'info', 'warn', 'error']
-     *
+     * 
      * // Emit as events
      * log: [
      *  { emit: 'stdout', level: 'query' },
@@ -864,12 +864,12 @@ export namespace Prisma {
     ? never
     : S extends VotesCountOutputTypeArgs
     ?'include' extends U
-    ? VotesCountOutputType
+    ? VotesCountOutputType 
     : 'select' extends U
     ? {
     [P in TrueKeys<S['select']>]:
     P extends keyof VotesCountOutputType ? VotesCountOutputType[P] : never
-  }
+  } 
     : VotesCountOutputType
   : VotesCountOutputType
 
@@ -884,7 +884,7 @@ export namespace Prisma {
   export type VotesCountOutputTypeArgs = {
     /**
      * Select specific fields to fetch from the VotesCountOutputType
-     *
+     * 
     **/
     select?: VotesCountOutputTypeSelect | null
   }
@@ -976,64 +976,64 @@ export namespace Prisma {
   export type AnswersAggregateArgs = {
     /**
      * Filter which answers to aggregate.
-     *
+     * 
     **/
     where?: answersWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of answers to fetch.
-     *
+     * 
     **/
     orderBy?: Enumerable<answersOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
-     *
+     * 
     **/
     cursor?: answersWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` answers from the position of the cursor.
-     *
+     * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` answers.
-     *
+     * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned answers
     **/
     _count?: true | AnswersCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to average
     **/
     _avg?: AnswersAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to sum
     **/
     _sum?: AnswersSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: AnswersMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: AnswersMaxAggregateInputType
@@ -1115,12 +1115,12 @@ export namespace Prisma {
     ? answers  & {
     [P in TrueKeys<S['include']>]:
         P extends 'votes' ? votesGetPayload<S['include'][P]> :  never
-  }
+  } 
     : 'select' extends U
     ? {
     [P in TrueKeys<S['select']>]:
         P extends 'votes' ? votesGetPayload<S['select'][P]> :  P extends keyof answers ? answers[P] : never
-  }
+  } 
     : answers
   : answers
 
@@ -1172,13 +1172,13 @@ export namespace Prisma {
      * @example
      * // Get all Answers
      * const answers = await prisma.answers.findMany()
-     *
+     * 
      * // Get first 10 Answers
      * const answers = await prisma.answers.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `vote_id`
      * const answersWithVote_idOnly = await prisma.answers.findMany({ select: { vote_id: true } })
-     *
+     * 
     **/
     findMany<T extends answersFindManyArgs>(
       args?: SelectSubset<T, answersFindManyArgs>
@@ -1194,7 +1194,7 @@ export namespace Prisma {
      *     // ... data to create a Answers
      *   }
      * })
-     *
+     * 
     **/
     create<T extends answersCreateArgs>(
       args: SelectSubset<T, answersCreateArgs>
@@ -1210,7 +1210,7 @@ export namespace Prisma {
      *         // ... provide data here
      *       }
      *     })
-     *
+     *     
     **/
     createMany<T extends answersCreateManyArgs>(
       args?: SelectSubset<T, answersCreateManyArgs>
@@ -1226,7 +1226,7 @@ export namespace Prisma {
      *     // ... filter to delete one Answers
      *   }
      * })
-     *
+     * 
     **/
     delete<T extends answersDeleteArgs>(
       args: SelectSubset<T, answersDeleteArgs>
@@ -1245,7 +1245,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
     **/
     update<T extends answersUpdateArgs>(
       args: SelectSubset<T, answersUpdateArgs>
@@ -1261,7 +1261,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
     **/
     deleteMany<T extends answersDeleteManyArgs>(
       args?: SelectSubset<T, answersDeleteManyArgs>
@@ -1282,7 +1282,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
     **/
     updateMany<T extends answersUpdateManyArgs>(
       args: SelectSubset<T, answersUpdateManyArgs>
@@ -1408,7 +1408,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends AnswersGroupByArgs,
@@ -1526,17 +1526,17 @@ export namespace Prisma {
   export type answersFindUniqueArgsBase = {
     /**
      * Select specific fields to fetch from the answers
-     *
+     * 
     **/
     select?: answersSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: answersInclude | null
     /**
      * Filter, which answers to fetch.
-     *
+     * 
     **/
     where: answersWhereUniqueInput
   }
@@ -1551,7 +1551,7 @@ export namespace Prisma {
     */
     rejectOnNotFound?: RejectOnNotFound
   }
-
+      
 
   /**
    * answers base type for findFirst actions
@@ -1559,52 +1559,52 @@ export namespace Prisma {
   export type answersFindFirstArgsBase = {
     /**
      * Select specific fields to fetch from the answers
-     *
+     * 
     **/
     select?: answersSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: answersInclude | null
     /**
      * Filter, which answers to fetch.
-     *
+     * 
     **/
     where?: answersWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of answers to fetch.
-     *
+     * 
     **/
     orderBy?: Enumerable<answersOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for answers.
-     *
+     * 
     **/
     cursor?: answersWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` answers from the position of the cursor.
-     *
+     * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` answers.
-     *
+     * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of answers.
-     *
+     * 
     **/
     distinct?: Enumerable<AnswersScalarFieldEnum>
   }
@@ -1619,7 +1619,7 @@ export namespace Prisma {
     */
     rejectOnNotFound?: RejectOnNotFound
   }
-
+      
 
   /**
    * answers findMany
@@ -1627,45 +1627,45 @@ export namespace Prisma {
   export type answersFindManyArgs = {
     /**
      * Select specific fields to fetch from the answers
-     *
+     * 
     **/
     select?: answersSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: answersInclude | null
     /**
      * Filter, which answers to fetch.
-     *
+     * 
     **/
     where?: answersWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of answers to fetch.
-     *
+     * 
     **/
     orderBy?: Enumerable<answersOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing answers.
-     *
+     * 
     **/
     cursor?: answersWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` answers from the position of the cursor.
-     *
+     * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` answers.
-     *
+     * 
     **/
     skip?: number
     distinct?: Enumerable<AnswersScalarFieldEnum>
@@ -1678,17 +1678,17 @@ export namespace Prisma {
   export type answersCreateArgs = {
     /**
      * Select specific fields to fetch from the answers
-     *
+     * 
     **/
     select?: answersSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: answersInclude | null
     /**
      * The data needed to create a answers.
-     *
+     * 
     **/
     data: XOR<answersCreateInput, answersUncheckedCreateInput>
   }
@@ -1700,7 +1700,7 @@ export namespace Prisma {
   export type answersCreateManyArgs = {
     /**
      * The data used to create many answers.
-     *
+     * 
     **/
     data: Enumerable<answersCreateManyInput>
     skipDuplicates?: boolean
@@ -1713,22 +1713,22 @@ export namespace Prisma {
   export type answersUpdateArgs = {
     /**
      * Select specific fields to fetch from the answers
-     *
+     * 
     **/
     select?: answersSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: answersInclude | null
     /**
      * The data needed to update a answers.
-     *
+     * 
     **/
     data: XOR<answersUpdateInput, answersUncheckedUpdateInput>
     /**
      * Choose, which answers to update.
-     *
+     * 
     **/
     where: answersWhereUniqueInput
   }
@@ -1740,12 +1740,12 @@ export namespace Prisma {
   export type answersUpdateManyArgs = {
     /**
      * The data used to update answers.
-     *
+     * 
     **/
     data: XOR<answersUpdateManyMutationInput, answersUncheckedUpdateManyInput>
     /**
      * Filter which answers to update
-     *
+     * 
     **/
     where?: answersWhereInput
   }
@@ -1757,27 +1757,27 @@ export namespace Prisma {
   export type answersUpsertArgs = {
     /**
      * Select specific fields to fetch from the answers
-     *
+     * 
     **/
     select?: answersSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: answersInclude | null
     /**
      * The filter to search for the answers to update in case it exists.
-     *
+     * 
     **/
     where: answersWhereUniqueInput
     /**
      * In case the answers found by the `where` argument doesn't exist, create a new answers with this data.
-     *
+     * 
     **/
     create: XOR<answersCreateInput, answersUncheckedCreateInput>
     /**
      * In case the answers was found with the provided `where` argument, update it with this data.
-     *
+     * 
     **/
     update: XOR<answersUpdateInput, answersUncheckedUpdateInput>
   }
@@ -1789,17 +1789,17 @@ export namespace Prisma {
   export type answersDeleteArgs = {
     /**
      * Select specific fields to fetch from the answers
-     *
+     * 
     **/
     select?: answersSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: answersInclude | null
     /**
      * Filter which answers to delete.
-     *
+     * 
     **/
     where: answersWhereUniqueInput
   }
@@ -1811,7 +1811,7 @@ export namespace Prisma {
   export type answersDeleteManyArgs = {
     /**
      * Filter which answers to delete
-     *
+     * 
     **/
     where?: answersWhereInput
   }
@@ -1821,13 +1821,13 @@ export namespace Prisma {
    * answers: findUniqueOrThrow
    */
   export type answersFindUniqueOrThrowArgs = answersFindUniqueArgsBase
-
+      
 
   /**
    * answers: findFirstOrThrow
    */
   export type answersFindFirstOrThrowArgs = answersFindFirstArgsBase
-
+      
 
   /**
    * answers without action
@@ -1835,12 +1835,12 @@ export namespace Prisma {
   export type answersArgs = {
     /**
      * Select specific fields to fetch from the answers
-     *
+     * 
     **/
     select?: answersSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: answersInclude | null
   }
@@ -1873,7 +1873,7 @@ export namespace Prisma {
     title: string | null
     description: string | null
     created_at: Date | null
-    started_at: Date | null
+    opened_at: Date | null
     closed_at: Date | null
     status: status | null
   }
@@ -1883,7 +1883,7 @@ export namespace Prisma {
     title: string | null
     description: string | null
     created_at: Date | null
-    started_at: Date | null
+    opened_at: Date | null
     closed_at: Date | null
     status: status | null
   }
@@ -1894,7 +1894,7 @@ export namespace Prisma {
     description: number
     options: number
     created_at: number
-    started_at: number
+    opened_at: number
     closed_at: number
     status: number
     _all: number
@@ -1914,7 +1914,7 @@ export namespace Prisma {
     title?: true
     description?: true
     created_at?: true
-    started_at?: true
+    opened_at?: true
     closed_at?: true
     status?: true
   }
@@ -1924,7 +1924,7 @@ export namespace Prisma {
     title?: true
     description?: true
     created_at?: true
-    started_at?: true
+    opened_at?: true
     closed_at?: true
     status?: true
   }
@@ -1935,7 +1935,7 @@ export namespace Prisma {
     description?: true
     options?: true
     created_at?: true
-    started_at?: true
+    opened_at?: true
     closed_at?: true
     status?: true
     _all?: true
@@ -1944,64 +1944,64 @@ export namespace Prisma {
   export type VotesAggregateArgs = {
     /**
      * Filter which votes to aggregate.
-     *
+     * 
     **/
     where?: votesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of votes to fetch.
-     *
+     * 
     **/
     orderBy?: Enumerable<votesOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
-     *
+     * 
     **/
     cursor?: votesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` votes from the position of the cursor.
-     *
+     * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` votes.
-     *
+     * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned votes
     **/
     _count?: true | VotesCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to average
     **/
     _avg?: VotesAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to sum
     **/
     _sum?: VotesSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: VotesMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: VotesMaxAggregateInputType
@@ -2039,7 +2039,7 @@ export namespace Prisma {
     description: string
     options: JsonValue
     created_at: Date | null
-    started_at: Date | null
+    opened_at: Date | null
     closed_at: Date | null
     status: status | null
     _count: VotesCountAggregateOutputType | null
@@ -2069,7 +2069,7 @@ export namespace Prisma {
     description?: boolean
     options?: boolean
     created_at?: boolean
-    started_at?: boolean
+    opened_at?: boolean
     closed_at?: boolean
     status?: boolean
     answers?: boolean | answersFindManyArgs
@@ -2094,13 +2094,13 @@ export namespace Prisma {
     [P in TrueKeys<S['include']>]:
         P extends 'answers' ? Array < answersGetPayload<S['include'][P]>>  :
         P extends '_count' ? VotesCountOutputTypeGetPayload<S['include'][P]> :  never
-  }
+  } 
     : 'select' extends U
     ? {
     [P in TrueKeys<S['select']>]:
         P extends 'answers' ? Array < answersGetPayload<S['select'][P]>>  :
         P extends '_count' ? VotesCountOutputTypeGetPayload<S['select'][P]> :  P extends keyof votes ? votes[P] : never
-  }
+  } 
     : votes
   : votes
 
@@ -2152,13 +2152,13 @@ export namespace Prisma {
      * @example
      * // Get all Votes
      * const votes = await prisma.votes.findMany()
-     *
+     * 
      * // Get first 10 Votes
      * const votes = await prisma.votes.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const votesWithIdOnly = await prisma.votes.findMany({ select: { id: true } })
-     *
+     * 
     **/
     findMany<T extends votesFindManyArgs>(
       args?: SelectSubset<T, votesFindManyArgs>
@@ -2174,7 +2174,7 @@ export namespace Prisma {
      *     // ... data to create a Votes
      *   }
      * })
-     *
+     * 
     **/
     create<T extends votesCreateArgs>(
       args: SelectSubset<T, votesCreateArgs>
@@ -2190,7 +2190,7 @@ export namespace Prisma {
      *         // ... provide data here
      *       }
      *     })
-     *
+     *     
     **/
     createMany<T extends votesCreateManyArgs>(
       args?: SelectSubset<T, votesCreateManyArgs>
@@ -2206,7 +2206,7 @@ export namespace Prisma {
      *     // ... filter to delete one Votes
      *   }
      * })
-     *
+     * 
     **/
     delete<T extends votesDeleteArgs>(
       args: SelectSubset<T, votesDeleteArgs>
@@ -2225,7 +2225,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
     **/
     update<T extends votesUpdateArgs>(
       args: SelectSubset<T, votesUpdateArgs>
@@ -2241,7 +2241,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
     **/
     deleteMany<T extends votesDeleteManyArgs>(
       args?: SelectSubset<T, votesDeleteManyArgs>
@@ -2262,7 +2262,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
     **/
     updateMany<T extends votesUpdateManyArgs>(
       args: SelectSubset<T, votesUpdateManyArgs>
@@ -2388,7 +2388,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends VotesGroupByArgs,
@@ -2506,17 +2506,17 @@ export namespace Prisma {
   export type votesFindUniqueArgsBase = {
     /**
      * Select specific fields to fetch from the votes
-     *
+     * 
     **/
     select?: votesSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: votesInclude | null
     /**
      * Filter, which votes to fetch.
-     *
+     * 
     **/
     where: votesWhereUniqueInput
   }
@@ -2531,7 +2531,7 @@ export namespace Prisma {
     */
     rejectOnNotFound?: RejectOnNotFound
   }
-
+      
 
   /**
    * votes base type for findFirst actions
@@ -2539,52 +2539,52 @@ export namespace Prisma {
   export type votesFindFirstArgsBase = {
     /**
      * Select specific fields to fetch from the votes
-     *
+     * 
     **/
     select?: votesSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: votesInclude | null
     /**
      * Filter, which votes to fetch.
-     *
+     * 
     **/
     where?: votesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of votes to fetch.
-     *
+     * 
     **/
     orderBy?: Enumerable<votesOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for votes.
-     *
+     * 
     **/
     cursor?: votesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` votes from the position of the cursor.
-     *
+     * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` votes.
-     *
+     * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of votes.
-     *
+     * 
     **/
     distinct?: Enumerable<VotesScalarFieldEnum>
   }
@@ -2599,7 +2599,7 @@ export namespace Prisma {
     */
     rejectOnNotFound?: RejectOnNotFound
   }
-
+      
 
   /**
    * votes findMany
@@ -2607,45 +2607,45 @@ export namespace Prisma {
   export type votesFindManyArgs = {
     /**
      * Select specific fields to fetch from the votes
-     *
+     * 
     **/
     select?: votesSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: votesInclude | null
     /**
      * Filter, which votes to fetch.
-     *
+     * 
     **/
     where?: votesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of votes to fetch.
-     *
+     * 
     **/
     orderBy?: Enumerable<votesOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing votes.
-     *
+     * 
     **/
     cursor?: votesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` votes from the position of the cursor.
-     *
+     * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` votes.
-     *
+     * 
     **/
     skip?: number
     distinct?: Enumerable<VotesScalarFieldEnum>
@@ -2658,17 +2658,17 @@ export namespace Prisma {
   export type votesCreateArgs = {
     /**
      * Select specific fields to fetch from the votes
-     *
+     * 
     **/
     select?: votesSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: votesInclude | null
     /**
      * The data needed to create a votes.
-     *
+     * 
     **/
     data: XOR<votesCreateInput, votesUncheckedCreateInput>
   }
@@ -2680,7 +2680,7 @@ export namespace Prisma {
   export type votesCreateManyArgs = {
     /**
      * The data used to create many votes.
-     *
+     * 
     **/
     data: Enumerable<votesCreateManyInput>
     skipDuplicates?: boolean
@@ -2693,22 +2693,22 @@ export namespace Prisma {
   export type votesUpdateArgs = {
     /**
      * Select specific fields to fetch from the votes
-     *
+     * 
     **/
     select?: votesSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: votesInclude | null
     /**
      * The data needed to update a votes.
-     *
+     * 
     **/
     data: XOR<votesUpdateInput, votesUncheckedUpdateInput>
     /**
      * Choose, which votes to update.
-     *
+     * 
     **/
     where: votesWhereUniqueInput
   }
@@ -2720,12 +2720,12 @@ export namespace Prisma {
   export type votesUpdateManyArgs = {
     /**
      * The data used to update votes.
-     *
+     * 
     **/
     data: XOR<votesUpdateManyMutationInput, votesUncheckedUpdateManyInput>
     /**
      * Filter which votes to update
-     *
+     * 
     **/
     where?: votesWhereInput
   }
@@ -2737,27 +2737,27 @@ export namespace Prisma {
   export type votesUpsertArgs = {
     /**
      * Select specific fields to fetch from the votes
-     *
+     * 
     **/
     select?: votesSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: votesInclude | null
     /**
      * The filter to search for the votes to update in case it exists.
-     *
+     * 
     **/
     where: votesWhereUniqueInput
     /**
      * In case the votes found by the `where` argument doesn't exist, create a new votes with this data.
-     *
+     * 
     **/
     create: XOR<votesCreateInput, votesUncheckedCreateInput>
     /**
      * In case the votes was found with the provided `where` argument, update it with this data.
-     *
+     * 
     **/
     update: XOR<votesUpdateInput, votesUncheckedUpdateInput>
   }
@@ -2769,17 +2769,17 @@ export namespace Prisma {
   export type votesDeleteArgs = {
     /**
      * Select specific fields to fetch from the votes
-     *
+     * 
     **/
     select?: votesSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: votesInclude | null
     /**
      * Filter which votes to delete.
-     *
+     * 
     **/
     where: votesWhereUniqueInput
   }
@@ -2791,7 +2791,7 @@ export namespace Prisma {
   export type votesDeleteManyArgs = {
     /**
      * Filter which votes to delete
-     *
+     * 
     **/
     where?: votesWhereInput
   }
@@ -2801,13 +2801,13 @@ export namespace Prisma {
    * votes: findUniqueOrThrow
    */
   export type votesFindUniqueOrThrowArgs = votesFindUniqueArgsBase
-
+      
 
   /**
    * votes: findFirstOrThrow
    */
   export type votesFindFirstOrThrowArgs = votesFindFirstArgsBase
-
+      
 
   /**
    * votes without action
@@ -2815,12 +2815,12 @@ export namespace Prisma {
   export type votesArgs = {
     /**
      * Select specific fields to fetch from the votes
-     *
+     * 
     **/
     select?: votesSelect | null
     /**
      * Choose, which related nodes to fetch as well.
-     *
+     * 
     **/
     include?: votesInclude | null
   }
@@ -2850,7 +2850,7 @@ export namespace Prisma {
     description: 'description',
     options: 'options',
     created_at: 'created_at',
-    started_at: 'started_at',
+    opened_at: 'opened_at',
     closed_at: 'closed_at',
     status: 'status'
   };
@@ -2949,7 +2949,7 @@ export namespace Prisma {
     description?: StringFilter | string
     options?: JsonFilter
     created_at?: DateTimeNullableFilter | Date | string | null
-    started_at?: DateTimeNullableFilter | Date | string | null
+    opened_at?: DateTimeNullableFilter | Date | string | null
     closed_at?: DateTimeNullableFilter | Date | string | null
     status?: EnumstatusNullableFilter | status | null
     answers?: AnswersListRelationFilter
@@ -2961,7 +2961,7 @@ export namespace Prisma {
     description?: SortOrder
     options?: SortOrder
     created_at?: SortOrder
-    started_at?: SortOrder
+    opened_at?: SortOrder
     closed_at?: SortOrder
     status?: SortOrder
     answers?: answersOrderByRelationAggregateInput
@@ -2977,7 +2977,7 @@ export namespace Prisma {
     description?: SortOrder
     options?: SortOrder
     created_at?: SortOrder
-    started_at?: SortOrder
+    opened_at?: SortOrder
     closed_at?: SortOrder
     status?: SortOrder
     _count?: votesCountOrderByAggregateInput
@@ -2996,7 +2996,7 @@ export namespace Prisma {
     description?: StringWithAggregatesFilter | string
     options?: JsonWithAggregatesFilter
     created_at?: DateTimeNullableWithAggregatesFilter | Date | string | null
-    started_at?: DateTimeNullableWithAggregatesFilter | Date | string | null
+    opened_at?: DateTimeNullableWithAggregatesFilter | Date | string | null
     closed_at?: DateTimeNullableWithAggregatesFilter | Date | string | null
     status?: EnumstatusNullableWithAggregatesFilter | status | null
   }
@@ -3054,7 +3054,7 @@ export namespace Prisma {
     description: string
     options: JsonNullValueInput | InputJsonValue
     created_at?: Date | string | null
-    started_at?: Date | string | null
+    opened_at?: Date | string | null
     closed_at?: Date | string | null
     status?: status | null
     answers?: answersCreateNestedManyWithoutVotesInput
@@ -3066,7 +3066,7 @@ export namespace Prisma {
     description: string
     options: JsonNullValueInput | InputJsonValue
     created_at?: Date | string | null
-    started_at?: Date | string | null
+    opened_at?: Date | string | null
     closed_at?: Date | string | null
     status?: status | null
     answers?: answersUncheckedCreateNestedManyWithoutVotesInput
@@ -3077,7 +3077,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     options?: JsonNullValueInput | InputJsonValue
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    started_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    opened_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableEnumstatusFieldUpdateOperationsInput | status | null
     answers?: answersUpdateManyWithoutVotesNestedInput
@@ -3089,7 +3089,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     options?: JsonNullValueInput | InputJsonValue
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    started_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    opened_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableEnumstatusFieldUpdateOperationsInput | status | null
     answers?: answersUncheckedUpdateManyWithoutVotesNestedInput
@@ -3101,7 +3101,7 @@ export namespace Prisma {
     description: string
     options: JsonNullValueInput | InputJsonValue
     created_at?: Date | string | null
-    started_at?: Date | string | null
+    opened_at?: Date | string | null
     closed_at?: Date | string | null
     status?: status | null
   }
@@ -3111,7 +3111,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     options?: JsonNullValueInput | InputJsonValue
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    started_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    opened_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableEnumstatusFieldUpdateOperationsInput | status | null
   }
@@ -3122,7 +3122,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     options?: JsonNullValueInput | InputJsonValue
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    started_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    opened_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableEnumstatusFieldUpdateOperationsInput | status | null
   }
@@ -3252,7 +3252,7 @@ export namespace Prisma {
     _min?: NestedDateTimeNullableFilter
     _max?: NestedDateTimeNullableFilter
   }
-  export type JsonFilter =
+  export type JsonFilter = 
     | PatchUndefined<
         Either<Required<JsonFilterBase>, Exclude<keyof Required<JsonFilterBase>, 'path'>>,
         Required<JsonFilterBase>
@@ -3298,7 +3298,7 @@ export namespace Prisma {
     description?: SortOrder
     options?: SortOrder
     created_at?: SortOrder
-    started_at?: SortOrder
+    opened_at?: SortOrder
     closed_at?: SortOrder
     status?: SortOrder
   }
@@ -3312,7 +3312,7 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     created_at?: SortOrder
-    started_at?: SortOrder
+    opened_at?: SortOrder
     closed_at?: SortOrder
     status?: SortOrder
   }
@@ -3322,7 +3322,7 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     created_at?: SortOrder
-    started_at?: SortOrder
+    opened_at?: SortOrder
     closed_at?: SortOrder
     status?: SortOrder
   }
@@ -3330,7 +3330,7 @@ export namespace Prisma {
   export type votesSumOrderByAggregateInput = {
     id?: SortOrder
   }
-  export type JsonWithAggregatesFilter =
+  export type JsonWithAggregatesFilter = 
     | PatchUndefined<
         Either<Required<JsonWithAggregatesFilterBase>, Exclude<keyof Required<JsonWithAggregatesFilterBase>, 'path'>>,
         Required<JsonWithAggregatesFilterBase>
@@ -3553,7 +3553,7 @@ export namespace Prisma {
     notIn?: Enumerable<status> | null
     not?: NestedEnumstatusNullableFilter | status | null
   }
-  export type NestedJsonFilter =
+  export type NestedJsonFilter = 
     | PatchUndefined<
         Either<Required<NestedJsonFilterBase>, Exclude<keyof Required<NestedJsonFilterBase>, 'path'>>,
         Required<NestedJsonFilterBase>
@@ -3591,7 +3591,7 @@ export namespace Prisma {
     description: string
     options: JsonNullValueInput | InputJsonValue
     created_at?: Date | string | null
-    started_at?: Date | string | null
+    opened_at?: Date | string | null
     closed_at?: Date | string | null
     status?: status | null
   }
@@ -3602,7 +3602,7 @@ export namespace Prisma {
     description: string
     options: JsonNullValueInput | InputJsonValue
     created_at?: Date | string | null
-    started_at?: Date | string | null
+    opened_at?: Date | string | null
     closed_at?: Date | string | null
     status?: status | null
   }
@@ -3622,7 +3622,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     options?: JsonNullValueInput | InputJsonValue
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    started_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    opened_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableEnumstatusFieldUpdateOperationsInput | status | null
   }
@@ -3633,7 +3633,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     options?: JsonNullValueInput | InputJsonValue
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    started_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    opened_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: NullableEnumstatusFieldUpdateOperationsInput | status | null
   }

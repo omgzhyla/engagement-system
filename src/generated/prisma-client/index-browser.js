@@ -100,7 +100,7 @@ exports.Prisma.VotesScalarFieldEnum = makeEnum({
   description: 'description',
   options: 'options',
   created_at: 'created_at',
-  started_at: 'started_at',
+  opened_at: 'opened_at',
   closed_at: 'closed_at',
   status: 'status'
 });
