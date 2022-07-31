@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model answers {
+  vote_id      Int
+  user_id      String    @db.Uuid
+  answer       Int
+  submitted_at DateTime? @default(now()) @db.Timestamp(6)
+  votes        votes     @relation(fields: [vote_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "answers_votes_id_fk")
+
+  @@id([vote_id, user_id], map: "answers_pk")
+  @@index([vote_id], map: "answers_vote_id_index")
+}
+
+model votes {
+  id          Int       @id(map: "votes_pk") @default(autoincrement())
+  title       String    @db.VarChar(255)
+  description String
+  options     Json      @db.Json
+  created_at  DateTime? @default(now()) @db.Timestamp(6)
+  opened_at   DateTime? @db.Timestamp(6)
+  closed_at   DateTime? @db.Timestamp(6)
+  status      status?   @default(new)
+  answers     answers[]
+}
+
+enum status {
+  new
+  open
+  closed
+}
