@@ -5,7 +5,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AnswersModule } from './answers/answers.module';
 
 @Module({
-  imports: [PrismaModule, VotesModule, AnswersModule],
+  imports: [PrismaModule, VotesModule],
   providers: [ValidationPipe]
 })
 export class AppModule {}
